@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Add Elements to DOM</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("button").click(function(){
+            text=$('#t1').val();
+            
+            $("ol").append("<li>"+text+"</li>"); 
+        });
+    });
+</script>
+</head>
+<body>
+    <button>Add new list item</button>
+    <input type="text" id="t1">
+    <ol>
+        
+        
+    </ol>
+</body> 
+</html>
