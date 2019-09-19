@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <canvas id="mycanvas" height="300px" width="300px" style="border:1px solid #000000;">
+
+    </canvas>
+</body>
+<form>
+
+    <br><input type="button" id="button_draw_triangle" value="Draw Triangle">
+    <input type="button" id="button_draw_rotated_triangle" value="Draw rotated Triangle">
+    <input type="button" id="button_clear_canvas" value="Clear">
+</form>
+<script>
+    var c = document.getElementById("mycanvas");
+    var ctxt = c.getContext("2d");
+
+    $(document).ready(function () {
+        $("#button_draw_triangle").click(function () {
+
+
+            ctxt.fillStyle = '#f00';
+            ctxt.strokeStyle = '#000';
+            ctxt.lineWidth = 3;
+            ctxt.beginPath();
+            ctxt.moveTo(60, 240);
+            ctxt.lineTo(240, 240);
+            ctxt.lineTo(150, 60);
+
+            ctxt.closePath();
+            ctxt.fill();
+            ctxt.stroke();
+            
+        });
+
+        $("#button_draw_rotated_triangle").click(function () {
+            ctxt.fillStyle   = '#f00';
+ctxt.strokeStyle = '#000';
+ctxt.lineWidth   = 3;
+ctxt.beginPath();
+ctxt.translate(c.width/2, c.height/2);
+ctxt.rotate(Math.PI / 4);
+ctxt.moveTo(-90, 90);
+ctxt.lineTo(90, 90);
+ctxt.lineTo(0, -90);
+
+ctxt.closePath();
+ctxt.fill();
+ctxt.stroke();
+            
+         });
+         $("#button_clear_canvas").click(function () {
+            ctxt.restore();
+            
+            ctxt.clearRect(0, 0, c.width, c.height);
+         });
+
+    });
+</script>
+
+
+</html>
